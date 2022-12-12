@@ -8,7 +8,17 @@ iRay  | Programming
 
 ]]
 
-
+for useless, garbage in next,getgc() do
+   if getfenv(garbage).script == game.Players.LocalPlayer.PlayerScripts.PlayerModule.CameraModule.ZoomController.Popper and typeof(garbage) == "function" then
+       for number, value in next, getconstants(garbage) do
+           if tonumber(value) == 0.25 then
+               setconstant(garbage,number,0)
+           elseif tonumber(value) == 0 then
+               setconstant(garbage,number,0.25)
+           end
+       end
+   end
+end
 game.Players.LocalPlayer.CameraMaxZoomDistance = math.huge
 local Release = "Beta 7R"
 local NotificationDuration = 6.5
